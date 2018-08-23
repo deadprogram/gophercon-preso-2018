@@ -1,0 +1,14 @@
+hello, world
+go run ./cmd/capwindow/main.go 0
+
+object classification:
+go run ./cmd/tf-classifier/main.go 0 ~/Downloads/tensorflow_inception_graph.pb ~/Downloads/imagenet_comp_graph_label_strings.txt opencv cpu
+
+style mapping:
+go run ./cmd/dnn-style-transfer/main.go 0 ~/Downloads/starry_night.t7 openvino fp16
+
+pose detection:
+go run ./cmd/dnn-pose-detection/main.go 0 ~/Downloads/pose_iter_440000.caffemodel ~/Downloads/openpose_pose_coco.prototxt openvino cpu
+
+object tracking:
+go run ~/Preso/iotdevfest-3/demo/facetracker/main.go ~/Downloads/res10_300x300_ssd_iter_140000.caffemodel ~/Development/opencv/samples/dnn/face_detector/deploy.prototxt openvino fp16

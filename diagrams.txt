@@ -1,0 +1,60 @@
+graph TD
+subgraph core
+C[Core]
+end
+subgraph modules
+C -->videoio
+C -->imgproc
+C -->highgui
+C -->more...
+end
+
+graph TD
+subgraph core
+C[Core]
+end
+subgraph contrib
+C-->face
+C-->tracking
+C-->xfeatures2d
+C-->others...
+end
+subgraph modules
+C -->videoio
+C -->imgproc
+C -->highgui
+C -->more...
+end
+
+graph TD
+A[Go application] -->B[GoCV Go functions]
+subgraph GoCV
+B --> C[GoCV C wrapper functions]
+end
+C-->OpenCV
+
+graph TD
+A[GoCV] -->B[OpenCV]
+B --> C[DNN module]
+C-->Caffe
+C -->TensorFlow
+C -->Torch
+C -->Darknet
+
+graph TD
+C[OpenVINO Inference Engine]
+C-->D[CPU]
+C-->E[GPU 32-bit]
+C-->F[GPU 16-bit]
+C-->G[VPU]
+
+graph LR
+subgraph Model creation
+A[Define model architecture] -->|train|B[Trained model]
+T(Training data set) -->B
+end
+subgraph Model usage
+B --> |optimize|M[Optimized model]
+M --> |inference|C[Result data]
+R(Runtime data) -->C
+end
